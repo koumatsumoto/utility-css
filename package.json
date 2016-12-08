@@ -19,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/kouMatsumoto/stylus-rocket-dash/issues"
   },
-  "homepage": "https://github.com/kouMatsumoto/stylus-rocket-dash#readme"
+  "homepage": "https://github.com/kouMatsumoto/stylus-rocket-dash#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-stylus": "^2.6.0",
+    "gulp-util": "^3.0.7",
+    "stylint": "^1.5.7"
+  },
+  "dependencies": {
+    "stylus": "^0.54.5"
+  }
 }
