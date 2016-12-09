@@ -34,3 +34,17 @@ gulp.task('dev:styl', ['dev:styl:lint'], () => {
     .pipe(gulpSourcemaps.write())
     .pipe(gulp.dest(DIST_ROOT));
 });
+
+
+/**
+ * Task for watch to transpile on update
+ */
+gulp.task('watch:styl', () => {
+  gulp.watch(path.join(SRC_ROOT, '**/*.styl'), ['dev:styl']);
+});
+
+
+/**
+ * Task used with cording
+ */
+gulp.task('dev:start', ['dev:styl', 'watch:styl']);
