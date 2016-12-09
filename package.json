@@ -1,25 +1,27 @@
 {
-  "name": "stylus-rocket-dash",
+  "name": "rocket-start-oocss",
   "version": "0.0.1",
-  "description": "A framework for stylus",
+  "description": "A framework of oocss to accelerate your web development",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kouMatsumoto/stylus-rocket-dash.git"
+    "url": "git+https://github.com/kouMatsumoto/rocket-start-oocss.git"
   },
   "keywords": [
     "stylus",
+    "css",
+    "framework",
     "oocss"
   ],
   "author": "kouMatsumoto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kouMatsumoto/stylus-rocket-dash/issues"
+    "url": "https://github.com/kouMatsumoto/rocket-start-oocss/issues"
   },
-  "homepage": "https://github.com/kouMatsumoto/stylus-rocket-dash#readme",
+  "homepage": "https://github.com/kouMatsumoto/rocket-start-oocss#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.1.0",
