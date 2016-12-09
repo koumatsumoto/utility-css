@@ -38,3 +38,6 @@ jspm_packages
 
 # IDE and Editor
 .idea
+
+# ignore dist dir in develop
+/dist

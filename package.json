@@ -25,10 +25,11 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.9.1",
+    "gulp-stylint": "^4.0.0",
     "gulp-stylus": "^2.6.0",
-    "gulp-util": "^3.0.7",
-    "stylint": "^1.5.7"
+    "gulp-util": "^3.0.7"
   },
   "dependencies": {
     "stylus": "^0.54.5"
