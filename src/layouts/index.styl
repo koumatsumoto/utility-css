@@ -1,0 +1,58 @@
+// Mixin to trim side '-' of string
+rs-trim-side-hyphen($string = '') {
+  $s = '' + $string; // convert to string
+  return $s == '' ? '' : match('^([-]+)?(.*?)([-]+)?$', $s)[2];
+}
+
+
+rs-make-prefix($string = '') {
+  if ($string == '') {
+    return '';
+  }
+
+  // trim side hyphens
+  $s = rs-trim-side-hyphen($string);
+  // return added end hyphen
+  return $s + '-';
+}
+
+
+
+
+
+// Mixin to create flex-layouts
+rs-create-flex($global_prefix = '', $media = '') {
+  $prefix = rs-make-prefix($global_prefix) + 'layout-';
+
+
+  // keyword and property of justify-content and align-items
+  $flex-justify-content-values = {
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    between: space-between,
+    around: space-around
+  };
+  $flex-align-items-values = {
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    baseline: baseline,
+    stretch: stretch
+  };
+
+
+  // generate class of `rs-layout-*-*`
+  for $jc-key, $jc-val in $flex-justify-content-values {
+    for $ai-key, $ai-val in $flex-align-items-values {
+      {selector('.' + $prefix + $jc-key + '-' + $ai-key)} {
+        align-items: $ai-val;
+        justify-content: $jc-val;
+      }
+    }
+  }
+}
+
+
+
+rs-create-flex('-test--');
