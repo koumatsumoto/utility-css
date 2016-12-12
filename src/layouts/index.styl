@@ -1,6 +1,28 @@
+// Mixin to trim side '-' of string
+rs-trim-side-hyphen($string = '') {
+  $s = '' + $string; // convert to string
+  return $s == '' ? '' : match('^([-]+)?(.*?)([-]+)?$', $s)[2];
+}
+
+
+rs-make-prefix($string = '') {
+  if ($string == '') {
+    return '';
+  }
+
+  // trim side hyphens
+  $s = rs-trim-side-hyphen($string);
+  // return added end hyphen
+  return $s + '-';
+}
+
+
+
+
+
 // Mixin to create flex-layouts
 rs-create-flex($global_prefix = '', $media = '') {
-  $prefix = $global_prefix + 'layout-';
+  $prefix = rs-make-prefix($global_prefix) + 'layout-';
 
 
   // keyword and property of justify-content and align-items
@@ -33,4 +55,4 @@ rs-create-flex($global_prefix = '', $media = '') {
 
 
 
-rs-create-flex('rs-');
+rs-create-flex('-test--');
