@@ -20,7 +20,7 @@
   "maxWarnings": false,
   "mixed": true,
   "mixins": [],
-  "namingConvention": "lowercase-dash",
+  "namingConvention": false,
   "namingConventionStrict": true,
   "none": "never",
   "noImportant": true,
