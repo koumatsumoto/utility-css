@@ -1,0 +1,26 @@
+/**
+ * Function to get hyphen-case class name from multi strings
+ *
+ * the difference between get-prefix() is whether using trim-side-hyphen to arguments.
+ * @param {string...} $args - multi string to class name concatenated by hyphen-case
+ */
+rs-get-class-name($args...) {
+  if (length($args) < 1) {
+    return error('rs-get-hyphen-case-class-name needs at least one arguments');
+  }
+
+  $filtered = (); // consist of string which is not '' in args
+  $s = ''; // string var to to-string $a and check if $a is not ''
+  for $a in $args {
+    $s = '' + $a;
+    if ($s != '') {
+      push($filtered, $s);
+    }
+  }
+
+  if (0 < length($filtered)) {
+    return '.' + join('-', $filtered);
+  } else {
+    return error('rs-get-hyphen-case-class-name needs at least one valid arguments');
+  }
+}
