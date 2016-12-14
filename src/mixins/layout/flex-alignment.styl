@@ -1,7 +1,9 @@
 @import '../../functions';
 
 
-// Mixin to create flex-layouts
+/**
+ * Mixin to create flex alignment classes
+ */
 rs-flex-alignment($prefix = '') {
   $prefix = rs-get-prefix($prefix, 'layout');
 
@@ -20,7 +22,6 @@ rs-flex-alignment($prefix = '') {
     baseline: baseline,
     stretch: stretch
   };
-
 
   // generate class of `rs-layout-*-*`
   for $jc-key, $jc-val in $justify-content {
