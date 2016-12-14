@@ -1,20 +1,20 @@
-@import '../functions';
+@import '../../functions';
 
 
 // Mixin to create flex-layouts
-rs-create-flex($global_prefix = '', $media = '') {
-  $prefix = rs-get-prefix($global_prefix, 'layout');
+rs-create-flex($prefix = '') {
+  $prefix = rs-get-prefix($prefix, 'layout');
 
 
   // keyword and property of justify-content and align-items
-  $justify-content-values = {
+  $justify-content = {
     start: flex-start,
     end: flex-end,
     center: center,
     between: space-between,
     around: space-around
   };
-  $align-items-values = {
+  $align-items = {
     start: flex-start,
     end: flex-end,
     center: center,
@@ -24,9 +24,9 @@ rs-create-flex($global_prefix = '', $media = '') {
 
 
   // generate class of `rs-layout-*-*`
-  for $jc-key, $jc-val in $justify-content-values {
-    for $ai-key, $ai-val in $align-items-values {
-      {selector('.' + $prefix + $jc-key + '-' + $ai-key)} {
+  for $jc-key, $jc-val in $justify-content {
+    for $ai-key, $ai-val in $align-items {
+      {rs-get-class-name($prefix, $jc-key, $ai-key)} {
         align-items: $ai-val;
         justify-content: $jc-val;
       }
