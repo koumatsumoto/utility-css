@@ -1,0 +1,34 @@
+@import '../../functions';
+
+
+/**
+ * Mixin to create classes of display
+ */
+rs-display($prefix = '') {
+  $display = {
+    block: {
+      display: block,
+    },
+    column: {
+      display: flex,
+      flex-direction: column,
+    },
+    iblock: {
+      display: inline-block,
+    },
+    inline: {
+      display: inline,
+    },
+    row: {
+      display: flex,
+      flex-direction: row,
+    }
+  };
+
+  // generate classes
+  for $key, $val in $display {
+    {rs-get-class-name($prefix, 'layout', $key)} {
+      {$val}
+    }
+  }
+}
