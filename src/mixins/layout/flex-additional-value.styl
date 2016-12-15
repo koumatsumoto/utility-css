@@ -32,6 +32,7 @@ rs-flex-additional-value($prefix = '') {
   for $key, $val in $data {
     {rs-get-class-name($prefix, $key)} {
       {$val}
+      box-sizing: border-box;
     }
   }
 }
