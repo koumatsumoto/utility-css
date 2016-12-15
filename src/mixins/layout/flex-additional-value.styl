@@ -1,0 +1,38 @@
+@import '../../functions';
+
+
+/**
+ * Mixin to create classes of flex-grow, flex-shrink, and so on
+ */
+rs-flex-additional-value($prefix = '') {
+  $prefix = rs-get-prefix($prefix, 'flex');
+
+  $data = {
+    auto: {
+      flex: 1 1 auto,
+    },
+    grow: {
+      flex: 1 1 100%,
+    },
+    initial: {
+      flex: 0 1 auto,
+    },
+    nogrow: {
+      flex: 0 1 auto,
+    },
+    none: {
+      flex: 0 0 auto,
+    },
+    noshrink: {
+      flex: 1 0 auto,
+    }
+  };
+
+  // generate classes
+  for $key, $val in $data {
+    {rs-get-class-name($prefix, $key)} {
+      {$val}
+      box-sizing: border-box;
+    }
+  }
+}

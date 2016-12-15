@@ -1,0 +1,17 @@
+@import '../../functions';
+
+
+/**
+ * Mixin to create classes of flex-order
+ *
+ * number are from 0 to 20
+ */
+rs-flex-order($prefix = '') {
+  $prefix = rs-get-prefix($prefix, 'flex-order');
+
+  for $i in 0..20 {
+    {rs-get-class-name($prefix, $i)} {
+      order: $i;
+    }
+  }
+}
