@@ -1,0 +1,23 @@
+@import '../../functions';
+
+
+/**
+ * Mixin to create classes of margin
+ */
+rs-margin-value($prefix = '') {
+  // TODO: Replace with global var injected with config
+  $base-size = 4px;
+
+  // generate `margin`, 'margin-top', 'margint-right' .. classes
+  for $direction in ('' 'top' 'right' 'bottom' 'left') {
+    // TODO: Enable to set scale number with config
+    for $i in 1..20 {
+      $suffix = '' + $i + 'x';
+
+      // margin
+      {rs-get-class-name($prefix, 'margin', $direction, $suffix)} {
+        {rs-get-valid-hyphen-case-string(margin $direction)}: $i * $base-size;
+      }
+    }
+  }
+}
