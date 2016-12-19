@@ -1,0 +1,34 @@
+@import '../../functions';
+
+
+/**
+ * Mixin to create classes of margin and padding
+ */
+_rs-margin-or-padding-value($prefix = '', $margin-or-padding) {
+  // TODO: Replace with global var injected with config
+  $base-size = 4px;
+
+  // generate `margin`, 'margin-top', 'margint-right' .. classes
+  for $direction in ('' 'top' 'right' 'bottom' 'left') {
+    // TODO: Enable to set scale number with config
+    for $i in 1..20 {
+      $suffix = '' + $i + 'x';
+
+      // margin
+      {rs-get-class-name($prefix, $margin-or-padding, $direction, $suffix)} {
+        {rs-get-valid-hyphen-case-string($margin-or-padding $direction)}: $i * $base-size;
+      }
+    }
+  }
+}
+
+
+// Generate for margin classes
+rs-margin-value($prefix = '') {
+  _rs-margin-or-padding-value($prefix, margin);
+}
+
+// Generate for padding classes
+rs-padding-value($prefix = '') {
+  _rs-margin-or-padding-value($prefix, padding);
+}

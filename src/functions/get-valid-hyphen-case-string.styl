@@ -1,0 +1,26 @@
+@import './trim-side-hyphen';
+
+
+/**
+ * Function to get hyphen-case string from rest params
+ *
+ * param will be trimmed side hyphen, and if param is invalid string (like ''), will be ignored.
+ * e.g.: ('my' 'class' '' 'name') => 'my-class-name'
+ *
+ * @param {string...} $args - multi string which will be concatenated by hyphen-case
+ */
+rs-get-valid-hyphen-case-string($args) {
+  if (length($args) < 1) {
+    return error('rs-get-valid-hyphen-case-str reqire at least one argument');
+  }
+
+  $array = (); // string array which will be concatenated with '-'
+  for $a in $args {
+    $s = rs-trim-side-hyphen($a); // trim side hyphens and convert to string
+    if ($s != '') {
+      push($array, $s);
+    }
+  }
+
+  return join('-', $array);
+}
