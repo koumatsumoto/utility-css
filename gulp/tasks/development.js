@@ -26,7 +26,7 @@ gulp.task('dev:styl:lint', () => {
  * Task for transpile stylus
  */
 gulp.task('dev:styl', ['dev:styl:lint'], () => {
-  return gulp.src(path.join(SRC_ROOT, 'index.styl'))
+  return gulp.src(path.join(SRC_ROOT, 'generate-class.styl'))
     .pipe(gulpPlumber())
     .pipe(gulpSourcemaps.init())
     .pipe(gulpStylus())

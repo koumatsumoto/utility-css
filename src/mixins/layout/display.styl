@@ -5,8 +5,6 @@
  * Mixin to create classes of display
  */
 rs-display($prefix = '') {
-  $prefix = rs-get-prefix($prefix, 'layout');
-
   $display = {
     block: {
       display: block,
@@ -29,7 +27,7 @@ rs-display($prefix = '') {
 
   // generate classes
   for $key, $val in $display {
-    {rs-get-class-name($prefix, $key)} {
+    {rs-get-class-name($prefix, 'layout', $key)} {
       {$val}
     }
   }
