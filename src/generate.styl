@@ -1,4 +1,6 @@
 @import './index';
+@import './_variables'; // Load default settings
+
 
 // setting config variables that injected by gulp
 $ext-framework-prefix ?= '';
@@ -6,4 +8,5 @@ $ext-use-media-query ?= true;
 $ext-media-queries ?= {};
 
 
-generate-classes($ext-framework-prefix, $ext-use-media-query, $ext-media-queries);
+
+generate-classes();

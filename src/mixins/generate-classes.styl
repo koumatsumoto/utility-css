@@ -25,13 +25,19 @@ _generate-classes($prefixes = ()) {
 /**
  * Mixin to generate common classes and media query classes
  */
-generate-classes($prefix = '', $use-media-query = true, $media-queries = {}) {
+generate-classes() {
+  // variables set from global variable
+  $prefix = $rs-options['global-prefix'];
+  $use-media-query = $rs-options['use-media-query'];
+  $media-options = $rs-options['media-query'];
+
+
   // generate common classes (no media query)
   _generate-classes($prefix);
 
   // generate media query classes, unless setting is disabled
   if ($use-media-query) {
-    for $key, $val in $media-queries {
+    for $key, $val in $media-options {
       $query = 'screen';
 
       // setting for min-width unless value is null

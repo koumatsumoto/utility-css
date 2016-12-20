@@ -1,3 +1,20 @@
-// If true, css classes will be named with $global-prefix, e.g. 'rs-class1', 'your-class1' ..
-$use-global-prefix = true
-$global-prefix = 'rs'
+// config object which is used in *rs* functions wherever
+$rs-options = {};
+
+
+// below is default configs that will be overrided
+
+
+// global prefix that used as namespace
+$rs-options['global-prefix'] = 'rs';
+
+// Whether use media query classes
+$rs-options['use-media-query'] = false;
+
+// media query
+$rs-options['media-query'] = {
+  sm: (null 599),
+  md: (600 1199),
+  gt-md: (600 null),
+  lg: (1200 null)
+};
