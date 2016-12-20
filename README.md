@@ -1,2 +1,2 @@
-# Rocket Start OOCSS
-A framework of oocss to accelerate your web development.
+# Rocket Start CSS
+A css framework that accelerates your web development.
