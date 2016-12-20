@@ -1,0 +1,53 @@
+/**
+ * Create all classes with hyphen-case prefix made by $prefixes
+ *
+ * @param {string[]} $prefixes - array of string, e.g. ('rs' 'sm')
+ */
+_generate-classes($prefixes = ()) {
+  $prefix = rs-get-valid-hyphen-case-string($prefixes);
+
+  // generate for display classes
+  rs-display($prefix);
+
+  // generate flex classes
+  rs-flex-alignment($prefix);
+  rs-flex-value($prefix);
+  rs-flex-additional-value($prefix);
+  rs-flex-order($prefix);
+
+  // generate margin and padding classes
+  rs-margin-value($prefix);
+  rs-padding-value($prefix);
+}
+
+
+
+/**
+ * Mixin to generate common classes and media query classes
+ */
+generate-classes($prefix = '', $use-media-query = true, $media-queries = {}) {
+  // generate common classes (no media query)
+  _generate-classes($prefix);
+
+  // generate media query classes, unless setting is disabled
+  if ($use-media-query) {
+    for $key, $val in $media-queries {
+      $query = 'screen';
+
+      // setting for min-width unless value is null
+      if $val[0] {
+        $query += ' and (min-width: ' + $val[0] + 'px)';
+      }
+
+      // setting for max-width unless value is null
+      if $val[1] {
+        $query += ' and (max-width: ' + $val[1] + 'px)';
+      }
+
+      // generate classes
+      @media $query {
+        _generate-classes($prefix $key);
+      }
+    }
+  }
+}

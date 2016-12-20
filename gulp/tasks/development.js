@@ -26,10 +26,18 @@ gulp.task('dev:styl:lint', () => {
  * Task for transpile stylus
  */
 gulp.task('dev:styl', ['dev:styl:lint'], () => {
-  return gulp.src(path.join(SRC_ROOT, 'generate-class.styl'))
+  const extOptions = require('../../default.config');
+
+  return gulp.src(path.join(SRC_ROOT, 'generate.styl'))
     .pipe(gulpPlumber())
     .pipe(gulpSourcemaps.init())
-    .pipe(gulpStylus())
+    .pipe(gulpStylus({
+      rawDefine: {
+        '$ext-framework-prefix': extOptions.frameworkPrefix,
+        '$ext-use-media-query': extOptions.useMediaQuery,
+        '$ext-media-queries': extOptions.mediaQueries,
+      }
+    }))
     .pipe(gulpRename('style.css'))
     .pipe(gulpSourcemaps.write())
     .pipe(gulp.dest(DIST_ROOT));
