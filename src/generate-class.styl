@@ -26,18 +26,17 @@ generate-classes($prefixes = ()) {
 
 
 
-$framework-prefix ?= '';
-$media-queries ?= {
-  'sm': (null 599),
-  'md': (600 959),
-  'lg': (1280 null)
-};
 
 
-// generate common (no media query)
-generate-classes($framework-prefix);
+$ext-framework-prefix ?= '';
+$ext-media-queries ?= {};
 
-for $key, $val in $media-queries {
+
+// generate common classes (no media query)
+generate-classes($ext-framework-prefix);
+
+// generate media query classes
+for $key, $val in $ext-media-queries {
   $query = 'screen';
 
   // setting for min-width unless value is null
@@ -52,6 +51,6 @@ for $key, $val in $media-queries {
 
   // generate classes
   @media $query {
-    generate-classes($framework-prefix $key);
+    generate-classes($ext-framework-prefix $key);
   }
 }
