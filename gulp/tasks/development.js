@@ -34,6 +34,7 @@ gulp.task('dev:styl', ['dev:styl:lint'], () => {
     .pipe(gulpStylus({
       rawDefine: {
         '$ext-framework-prefix': extOptions.frameworkPrefix,
+        '$ext-use-media-query': extOptions.useMediaQuery,
         '$ext-media-queries': extOptions.mediaQueries,
       }
     }))

@@ -30,27 +30,29 @@ generate-classes($prefixes = ()) {
 
 $ext-framework-prefix ?= '';
 $ext-media-queries ?= {};
-
+$ext-use-media-query ?= true;
 
 // generate common classes (no media query)
 generate-classes($ext-framework-prefix);
 
-// generate media query classes
-for $key, $val in $ext-media-queries {
-  $query = 'screen';
+// generate media query classes, if setting is enabled
+if ($ext-use-media-query) {
+  for $key, $val in $ext-media-queries {
+    $query = 'screen';
 
-  // setting for min-width unless value is null
-  if $val[0] {
-    $query += ' and (min-width: ' + $val[0] + 'px)';
-  }
+    // setting for min-width unless value is null
+    if $val[0] {
+      $query += ' and (min-width: ' + $val[0] + 'px)';
+    }
 
-  // setting for max-width unless value is null
-  if $val[1] {
-    $query += ' and (max-width: ' + $val[1] + 'px)';
-  }
+    // setting for max-width unless value is null
+    if $val[1] {
+      $query += ' and (max-width: ' + $val[1] + 'px)';
+    }
 
-  // generate classes
-  @media $query {
-    generate-classes($ext-framework-prefix $key);
+    // generate classes
+    @media $query {
+      generate-classes($ext-framework-prefix $key);
+    }
   }
 }
