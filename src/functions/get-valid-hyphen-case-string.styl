@@ -11,7 +11,7 @@
  */
 rs-get-valid-hyphen-case-string($args) {
   if (length($args) < 1) {
-    return error('rs-get-valid-hyphen-case-str reqire at least one argument');
+    return '';
   }
 
   $array = (); // string array which will be concatenated with '-'
@@ -22,5 +22,5 @@ rs-get-valid-hyphen-case-string($args) {
     }
   }
 
-  return join('-', $array);
+  return 0 < length($array) ? join('-', $array) : '';
 }
