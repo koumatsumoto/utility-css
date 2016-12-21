@@ -1,20 +1,16 @@
-// config object which is used in *rs* functions wherever
-$rs-options = {};
+// default options used for generate classes
+$rs-options = {
+  // global prefix that used as namespace
+  'global-prefix': '',
 
+  // whether use media query classes
+  'use-media-query': true,
 
-// below is default configs that will be overrided
-
-
-// global prefix that used as namespace
-$rs-options['global-prefix'] = 'rs';
-
-// Whether use media query classes
-$rs-options['use-media-query'] = false;
-
-// media query
-$rs-options['media-query'] = {
-  sm: (null 599),
-  md: (600 1199),
-  gt-md: (600 null),
-  lg: (1200 null)
+  // settings of media query class
+  'media-query': {
+    sm: (null 599),
+    md: (600 1199),
+    gt-md: (600 null),
+    lg: (1200 null)
+  }
 };
