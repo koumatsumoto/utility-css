@@ -3,7 +3,7 @@
  *
  * @param {string[]} $prefixes - array of string, e.g. ('rs' 'sm')
  */
-_generate-classes($prefixes = ()) {
+_generate-classes($prefixes, $options) {
   $prefix = rs-get-valid-hyphen-case-string($prefixes);
 
   // generate for display classes
@@ -16,8 +16,8 @@ _generate-classes($prefixes = ()) {
   rs-flex-order($prefix);
 
   // generate margin and padding classes
-  rs-margin-value($prefix);
-  rs-padding-value($prefix);
+  rs-margin-value($prefix, $options['margin-base-size'], $options['margin-scale-number']);
+  rs-padding-value($prefix, $options['padding-base-size'], $options['padding-scale-number']);
 }
 
 
@@ -25,15 +25,15 @@ _generate-classes($prefixes = ()) {
 /**
  * Mixin to generate common classes and media query classes
  */
-generate-classes() {
-  // variables set from global variable
-  $prefix = $rs-options['global-prefix'];
-  $use-media-query = $rs-options['use-media-query'];
-  $media-options = $rs-options['media-query'];
+generate-classes($options) {
+  // set option value from injected $options
+  $prefix = $options['global-prefix'];
+  $use-media-query = $options['use-media-query'];
+  $media-options = $options['media-query'];
 
 
   // generate common classes (no media query)
-  _generate-classes($prefix);
+  _generate-classes($prefix, $options);
 
   // generate media query classes, unless setting is disabled
   if ($use-media-query) {
@@ -52,7 +52,7 @@ generate-classes() {
 
       // generate classes
       @media $query {
-        _generate-classes($prefix $key);
+        _generate-classes(($prefix $key), $options);
       }
     }
   }

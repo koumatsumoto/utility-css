@@ -4,14 +4,10 @@
 /**
  * Mixin to create classes of margin and padding
  */
-_rs-margin-or-padding-value($prefix = '', $margin-or-padding) {
-  // TODO: Replace with global var injected with config
-  $base-size = 4px;
-
+_rs-margin-or-padding-value($prefix = '', $margin-or-padding, $base-size, $scale-number) {
   // generate `margin`, 'margin-top', 'margint-right' .. classes
   for $direction in ('' 'top' 'right' 'bottom' 'left') {
-    // TODO: Enable to set scale number with config
-    for $i in 1..20 {
+    for $i in 1..$scale-number {
       $suffix = '' + $i + 'x';
 
       // margin
@@ -24,11 +20,11 @@ _rs-margin-or-padding-value($prefix = '', $margin-or-padding) {
 
 
 // Generate for margin classes
-rs-margin-value($prefix = '') {
-  _rs-margin-or-padding-value($prefix, margin);
+rs-margin-value($prefix = '', $base-size = 4px, $scale-number = 20) {
+  _rs-margin-or-padding-value($prefix, margin, $base-size, $scale-number);
 }
 
 // Generate for padding classes
-rs-padding-value($prefix = '') {
-  _rs-margin-or-padding-value($prefix, padding);
+rs-padding-value($prefix = '', $base-size = 4px, $scale-number = 20) {
+  _rs-margin-or-padding-value($prefix, padding, $base-size, $scale-number);
 }

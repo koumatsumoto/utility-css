@@ -5,13 +5,16 @@
  * Function to get hyphen-case string from rest params
  *
  * param will be trimmed side hyphen, and if param is invalid string (like ''), will be ignored.
+ * e.g.: 'one-string' => 'one-string'
  * e.g.: ('my' 'class' '' 'name') => 'my-class-name'
  *
- * @param {string...} $args - multi string which will be concatenated by hyphen-case
+ * @param {string|string[]} $args - string or string array
+ * @return {string} - string that is concatenated with hyphen
  */
 rs-get-valid-hyphen-case-string($args) {
+  // if $args is one string
   if (length($args) < 1) {
-    return '';
+    return $args;
   }
 
   $array = (); // string array which will be concatenated with '-'

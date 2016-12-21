@@ -1,20 +1,28 @@
-// config object which is used in *rs* functions wherever
-$rs-options = {};
+// default options used for generate classes
+$rs-options = {
+  // global prefix that used as namespace
+  'global-prefix': 'aa',
 
+  // margin base size
+  'margin-base-size': 4px,
 
-// below is default configs that will be overrided
+  // how many generate margin-nx classes
+  'margin-scale-number': 20,
 
+  // padding base size
+  'padding-base-size': 4px,
 
-// global prefix that used as namespace
-$rs-options['global-prefix'] = 'rs';
+  // how many generate padding-nx classes
+  'padding-scale-number': 20,
 
-// Whether use media query classes
-$rs-options['use-media-query'] = false;
+  // whether use media query classes
+  'use-media-query': true,
 
-// media query
-$rs-options['media-query'] = {
-  sm: (null 599),
-  md: (600 1199),
-  gt-md: (600 null),
-  lg: (1200 null)
+  // settings of media query class
+  'media-query': {
+    sm: (null 599),
+    md: (600 1199),
+    gt-md: (600 null),
+    lg: (1200 null)
+  }
 };
