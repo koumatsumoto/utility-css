@@ -7,13 +7,22 @@
 _rs-margin-or-padding-value($prefix = '', $margin-or-padding, $base-size, $scale-number) {
   // generate `margin`, 'margin-top', 'margint-right' .. classes
   for $direction in ('' 'top' 'right' 'bottom' 'left') {
-    for $i in 1..$scale-number {
-      $suffix = '' + $i + 'x';
+    // scaling class e.g. 'margin-0', 'margin-1x', 'margin-2x' ...
+    for $i in 0..$scale-number {
+      $suffix = '' + $i;
+      if (0 < $i) {
+        $suffix += 'x';
+      }
 
       // margin
       {rs-get-class-name($prefix, $margin-or-padding, $direction, $suffix)} {
         {rs-get-valid-hyphen-case-string($margin-or-padding $direction)}: $i * $base-size;
       }
+    }
+
+    // auto value class e.g. 'margin-auto', 'margin-top-auto' ...
+    {rs-get-class-name($prefix, $margin-or-padding, $direction, auto)} {
+      {rs-get-valid-hyphen-case-string($margin-or-padding $direction)}: auto;
     }
   }
 }
