@@ -18,6 +18,12 @@ _generate-classes($prefixes, $options) {
   // generate margin and padding classes
   rs-margin-value($prefix, $options['margin-base-size'], $options['margin-scale-number']);
   rs-padding-value($prefix, $options['padding-base-size'], $options['padding-scale-number']);
+
+  // extra margin and padding classes
+  if ($options['extra-margin-and-padding'] && length($options['extra-margin-and-padding'])) {
+    rs-extra-margin($prefix, $options['extra-margin-and-padding']);
+    rs-extra-padding($prefix, $options['extra-margin-and-padding']);
+  }
 }
 
 
