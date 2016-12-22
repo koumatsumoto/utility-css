@@ -1,0 +1,23 @@
+@import '../../functions';
+
+
+/**
+ * Mixin to create text-align and vertical-align classes
+ */
+rs-align($prefix = '') {
+  // key and value of text-align
+  $text-align-option = {
+    initial: initial,
+    inherit: inherit,
+    left: left,
+    right: right,
+    center: center,
+    justify: justify,
+  };
+
+  for $key, $val in $text-align-option {
+    {rs-get-class-name($prefix, 'align', $key)} {
+      text-align: $val;
+    }
+  }
+}
