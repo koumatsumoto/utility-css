@@ -4,9 +4,8 @@
 /**
  * Mixin to create text-align and vertical-align classes
  */
-rs-align($prefix = '') {
-  // key and value of text-align
-  $text-align-option = {
+rs-text-align($prefix = '') {
+  $option = {
     initial: initial,
     inherit: inherit,
     left: left,
@@ -15,7 +14,7 @@ rs-align($prefix = '') {
     justify: justify,
   };
 
-  for $key, $val in $text-align-option {
+  for $key, $val in $option {
     {rs-get-class-name($prefix, 'align', $key)} {
       text-align: $val;
     }
