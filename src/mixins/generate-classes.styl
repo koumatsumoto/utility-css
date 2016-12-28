@@ -38,6 +38,9 @@ _generate-classes($prefixes, $options) {
   if ($options['transition'] && length($options['transition'])) {
     rs-transition($prefix, $options['transition']);
   }
+
+  // generate opacity classes
+  rs-opacity($prefix);
 }
 
 
