@@ -33,6 +33,11 @@ _generate-classes($prefixes, $options) {
   if ($options['color'] && length($options['color'])) {
     rs-color($prefix, $options['color']);
   }
+
+  // if transition setting exists, generate its classes
+  if ($options['transition'] && length($options['transition'])) {
+    rs-transition($prefix, $options['transition']);
+  }
 }
 
 
