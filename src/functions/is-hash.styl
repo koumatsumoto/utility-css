@@ -4,6 +4,11 @@
  * @param {any} $arg - any type variable, e.g. string, num, hash, and so on
  */
 rs-is-hash($arg) {
+  // if $arg is null, return 0
+  if (!$arg && length($arg) < 1) {
+    return 0;
+  }
+
   // because stylus do not have a way to check variable is primitive value or hash object
   // in order to put it into practice, use `for` syntax
   // in `for` syntax below,
