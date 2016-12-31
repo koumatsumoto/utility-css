@@ -15,7 +15,7 @@ rs-generate-classes-by-option($option) {
     return error('rs-generate-classes-by-option needs data field');
   }
 
-  // create prefix from multi string in $option.prefix
+  // create prefix from multi strings in $option.prefix
   $prefix = rs-get-valid-hyphen-case-string($option['prefix']);
 
   // generate classes
