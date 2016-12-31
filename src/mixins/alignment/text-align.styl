@@ -1,22 +1,20 @@
-@import '../../functions';
+@import '../generate/generate-classes-by-option';
 
 
 /**
  * Mixin to create text-align and vertical-align classes
  */
 rs-text-align($prefix = '') {
-  $option = {
-    initial: initial,
-    inherit: inherit,
-    left: left,
-    right: right,
-    center: center,
-    justify: justify,
-  };
-
-  for $key, $val in $option {
-    {rs-get-class-name($prefix, 'align', $key)} {
-      text-align: $val;
-    }
-  }
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'align'),
+    property: text-align,
+    data: {
+      initial: initial,
+      inherit: inherit,
+      left: left,
+      right: right,
+      center: center,
+      justify: justify,
+    },
+  });
 }
