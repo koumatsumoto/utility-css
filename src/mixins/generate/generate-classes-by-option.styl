@@ -21,7 +21,13 @@ rs-generate-classes-by-option($option) {
   // generate classes
   for $k, $v in $option['data'] {
     {rs-get-class-name($prefix, $k)} {
-      {$option['property']}: $v;
+      // case data value is object
+      if (1 < length($v)) {
+        {$v}
+      // case data value is single value
+      } else {
+        {$option['property']}: $v;
+      }
     }
   }
 }
