@@ -21,12 +21,20 @@ rs-generate-classes-by-option($option) {
   // generate classes
   for $k, $v in $option['data'] {
     {rs-get-class-name($prefix, $k)} {
-      // case data value is object
-      if (1 < length($v)) {
-        {$v}
-      // case data value is single value
-      } else {
+      $isHash = 0;
+
+      for $k1, $v1 in $v {
+        if ($v1 == 0 && $v == $k1) {
+          $isHash = 0;
+        } else {
+          $isHash = 1;
+        }
+      }
+
+      if (!$isHash) {
         {$option['property']}: $v;
+      } else {
+        {$v}
       }
     }
   }
