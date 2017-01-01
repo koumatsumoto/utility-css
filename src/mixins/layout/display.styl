@@ -9,22 +9,16 @@ rs-display($prefix = '') {
     prefix: ($prefix 'layout'),
     property: display,
     data: {
-      block: {
-        display: block,
+      block: block,
+      iblock: inline-block,
+      inline: inline,
+      row: {
+        display: flex,
+        flex-direction: row,
       },
       column: {
         display: flex,
         flex-direction: column,
-      },
-      iblock: {
-        display: inline-block,
-      },
-      inline: {
-        display: inline,
-      },
-      row: {
-        display: flex,
-        flex-direction: row,
       }
     },
   });
