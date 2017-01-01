@@ -1,34 +1,25 @@
-@import '../../functions';
+@import '../generate/generate-classes-by-option';
 
 
 /**
  * Mixin to create classes of display
  */
 rs-display($prefix = '') {
-  $display = {
-    block: {
-      display: block,
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'layout'),
+    property: display,
+    data: {
+      block: block,
+      iblock: inline-block,
+      inline: inline,
+      row: {
+        display: flex,
+        flex-direction: row,
+      },
+      column: {
+        display: flex,
+        flex-direction: column,
+      }
     },
-    column: {
-      display: flex,
-      flex-direction: column,
-    },
-    iblock: {
-      display: inline-block,
-    },
-    inline: {
-      display: inline,
-    },
-    row: {
-      display: flex,
-      flex-direction: row,
-    }
-  };
-
-  // generate classes
-  for $key, $val in $display {
-    {rs-get-class-name($prefix, 'layout', $key)} {
-      {$val}
-    }
-  }
+  });
 }

@@ -1,6 +1,6 @@
 {
   "blocks": false,
-  "brackets": "always",
+  "brackets": false,
   "colons": "always",
   "colors": "always",
   "commaSpace": "always",
