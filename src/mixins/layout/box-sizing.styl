@@ -1,0 +1,16 @@
+@import '../generate/generate-classes-by-option';
+
+
+/**
+ * Mixin to create classes of box-sizing
+ */
+rs-box-sizing($prefix = '') {
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'layout'),
+    property: box-sizing,
+    data: {
+      content-box: content-box,
+      border-box: border-box,
+    },
+  });
+}
