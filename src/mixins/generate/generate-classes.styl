@@ -6,6 +6,9 @@
 _generate-classes($prefixes, $options) {
   $prefix = rs-get-valid-hyphen-case-string($prefixes);
 
+  // generate for box-sizing classes
+  rs-box-sizing($prefix);
+
   // generate for display classes
   rs-display($prefix);
 
