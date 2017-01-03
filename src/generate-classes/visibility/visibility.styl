@@ -1,0 +1,17 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of visibility
+ *
+ */
+rs-visibility($prefix = '') {
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'visibility'),
+    property: visibility,
+    data: {
+      visible: visible,
+      hidden: hidden,
+    },
+  });
+}

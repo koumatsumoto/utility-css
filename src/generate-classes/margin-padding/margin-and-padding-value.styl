@@ -1,0 +1,47 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to create classes of margin and padding
+ */
+_rs-margin-or-padding-value($prefix = '', $margin-or-padding, $base-size, $scale-number) {
+  // generate `margin`, 'margin-top', 'margint-right' .. classes
+  for $direction in ('' 'top' 'right' 'bottom' 'left') {
+    // generate scale number classes e.g. 'margin-0', 'margin', 'margin-2x', 'margin-3x'...
+    for $i in 0..$scale-number {
+      // when $i == 0, no 'x' suffix e.g. 'margin-0'
+      if ($i == 0) {
+        $suffix = '' + $i;
+
+      // when $i == 1, no suffix e.g. 'margin'
+      } else if ($i == 1) {
+        $suffix = '';
+
+      // when 1 < $i, with 'x' suffix e.g. 'margin-2x'
+      } else {
+        $suffix = '' + $i + 'x';
+      }
+
+      // generate class
+      {rs-get-class-name($prefix, $margin-or-padding, $direction, $suffix)} {
+        {rs-get-valid-hyphen-case-string($margin-or-padding $direction)}: $i * $base-size;
+      }
+    }
+
+    // auto value class e.g. 'margin-auto', 'margin-top-auto' ...
+    {rs-get-class-name($prefix, $margin-or-padding, $direction, auto)} {
+      {rs-get-valid-hyphen-case-string($margin-or-padding $direction)}: auto;
+    }
+  }
+}
+
+
+// Generate for margin classes
+rs-margin-value($prefix = '', $base-size = 4px, $scale-number = 20) {
+  _rs-margin-or-padding-value($prefix, margin, $base-size, $scale-number);
+}
+
+// Generate for padding classes
+rs-padding-value($prefix = '', $base-size = 4px, $scale-number = 20) {
+  _rs-margin-or-padding-value($prefix, padding, $base-size, $scale-number);
+}

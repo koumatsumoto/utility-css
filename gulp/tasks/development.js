@@ -28,7 +28,7 @@ gulp.task('dev:styl:lint', () => {
 gulp.task('dev:styl', ['dev:styl:lint'], () => {
   const extOptions = require('../../default.config');
 
-  return gulp.src(path.join(SRC_ROOT, 'generate.styl'))
+  return gulp.src(path.join(PROJECT_ROOT, 'generate.styl'))
     .pipe(gulpPlumber())
     .pipe(gulpSourcemaps.init())
     .pipe(gulpStylus({

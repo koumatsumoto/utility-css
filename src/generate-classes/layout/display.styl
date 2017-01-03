@@ -1,0 +1,25 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of display
+ */
+rs-display($prefix = '') {
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'layout'),
+    property: display,
+    data: {
+      block: block,
+      iblock: inline-block,
+      inline: inline,
+      row: {
+        display: flex,
+        flex-direction: row,
+      },
+      column: {
+        display: flex,
+        flex-direction: column,
+      }
+    },
+  });
+}

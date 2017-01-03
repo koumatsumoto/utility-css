@@ -1,0 +1,44 @@
+@import '../../_functions';
+
+
+/**
+ * Function to generate classes from option
+ *
+ * @param {object} $option - generate option
+ * @param {string[]} $option.prefix - prefix of classes generated
+ * @param {string} $option.property - css property of classes generated
+ * @param {object} $option.common-styles - all generated classes has this style
+ * @param {object} $option.data - classes style will be set by this
+ */
+rs-generate-classes-by-option($option) {
+  // $options.data must be object
+  if (!$option['data'] && length($option['data']) < 1) {
+    return error('rs-generate-classes-by-option needs data field');
+  }
+
+  // create prefix from multi strings in $option.prefix
+  $prefix = rs-get-valid-hyphen-case-string($option['prefix']);
+
+  // common styles
+  $common-styles = $option['common-styles'] ? $option['common-styles'] : {};
+
+  // generate classes
+  for $k, $v in $option['data'] {
+    {rs-get-class-name($prefix, $k)} {
+      $styles = {};
+
+      // case $v is hash, $styles is assigned with $v as it is
+      if (rs-is-hash($v)) {
+        $styles = $v;
+      // case $v is primitive value
+      } else {
+        $styles[$option['property']] = $v;
+      }
+
+      // interpolate styles of this class
+      // {merge($common-styles, $styles)}
+      {$common-styles}
+      {$styles}
+    }
+  }
+}

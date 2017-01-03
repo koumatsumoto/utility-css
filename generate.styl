@@ -1,0 +1,12 @@
+@import './index';
+@import './default.config'; // Load default settings
+
+
+// setting config variables that injected by gulp
+$ext-framework-prefix ?= '';
+$ext-use-media-query ?= true;
+$ext-media-queries ?= {};
+
+
+
+rs-generate-classes($rs-options);

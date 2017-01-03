@@ -1,0 +1,24 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate opacity classes
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'rs-' of 'rs-class-name'
+ */
+rs-opacity($prefix = '') {
+  for $i in 0..20 {
+    $suffix = ($i * 5);
+    $val = ($i * 5 / 100);
+
+    // default numeric opacity classes
+    {rs-get-class-name($prefix, 'opacity', $suffix)} {
+      opacity: $val
+    }
+
+    // to hover class, e.g. 'rs-hover-opacity'
+    {rs-get-class-name($prefix, 'hover', 'opacity', $suffix) + ':hover'} {
+      opacity: $val;
+    }
+  }
+}

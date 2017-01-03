@@ -1,0 +1,21 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of flex-grow, flex-shrink, and so on
+ */
+rs-flex-additional-value($prefix = '') {
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'flex'),
+    property: flex,
+    common-styles: { box-sizing: border-box },
+    data: {
+      auto: 1 1 auto,
+      grow: 1 1 100%,
+      initial: 0 1 auto,
+      nogrow: 0 1 auto,
+      none: 0 0 auto,
+      noshrink: 1 0 auto,
+    },
+  });
+}

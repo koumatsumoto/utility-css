@@ -1,0 +1,114 @@
+@import './alignment';
+@import './color';
+@import './cursor';
+@import './flex';
+@import './layout';
+@import './margin-padding';
+@import './opacity';
+@import './overflow';
+@import './text';
+@import './transition';
+@import './visibility';
+
+
+
+/**
+ * Create all classes with hyphen-case prefix made by $prefixes
+ *
+ * @param {string[]} $prefixes - array of string, e.g. ('rs' 'sm')
+ */
+_rs-generate-classes($prefixes, $options) {
+  $prefix = rs-get-valid-hyphen-case-string($prefixes);
+
+  // generate for box-sizing classes
+  rs-box-sizing($prefix);
+
+  // generate cursor classes
+  rs-cursor($prefix);
+
+  // generate for display classes
+  rs-display($prefix);
+
+  // generate flex classes
+  rs-flex-alignment($prefix);
+  rs-flex-value($prefix);
+  rs-flex-additional-value($prefix);
+  rs-flex-order($prefix);
+
+  // generate text-align and vertical-align classes
+  rs-text-align($prefix);
+  rs-vertical-align($prefix);
+
+  // generate margin and padding classes
+  rs-margin-value($prefix, $options['margin-base-size'], $options['margin-scale-number']);
+  rs-padding-value($prefix, $options['padding-base-size'], $options['padding-scale-number']);
+
+  // extra margin and padding classes
+  if ($options['extra-margin-and-padding'] && length($options['extra-margin-and-padding'])) {
+    rs-extra-margin($prefix, $options['extra-margin-and-padding']);
+    rs-extra-padding($prefix, $options['extra-margin-and-padding']);
+  }
+
+  // if color setting exists, generate color classes
+  if ($options['color'] && length($options['color'])) {
+    rs-color($prefix, $options['color']);
+  }
+
+  // if transition setting exists, generate its classes
+  if ($options['transition'] && length($options['transition'])) {
+    rs-transition($prefix, $options['transition']);
+  }
+
+  // generate opacity classes
+  rs-opacity($prefix);
+
+  // generate overflow classes
+  rs-overflow($prefix);
+
+  // generate text classes
+  rs-text-decoration($prefix);
+  rs-text-size($prefix);
+  rs-text-weight($prefix);
+  rs-text-others($prefix);
+
+  // generate visibility classes
+  rs-visibility($prefix);
+}
+
+
+
+/**
+ * Mixin to generate common classes and media query classes
+ */
+rs-generate-classes($options) {
+  // set option value from injected $options
+  $prefix = $options['global-prefix'];
+  $use-media-query = $options['use-media-query'];
+  $media-options = $options['media-query'];
+
+
+  // generate common classes (no media query)
+  _rs-generate-classes($prefix, $options);
+
+  // generate media query classes, unless setting is disabled
+  if ($use-media-query) {
+    for $key, $val in $media-options {
+      $query = 'screen';
+
+      // setting for min-width unless value is null
+      if $val[0] {
+        $query += ' and (min-width: ' + $val[0] + 'px)';
+      }
+
+      // setting for max-width unless value is null
+      if $val[1] {
+        $query += ' and (max-width: ' + $val[1] + 'px)';
+      }
+
+      // generate classes
+      @media $query {
+        _rs-generate-classes(($prefix $key), $options);
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to create vertical-align classes
+ */
+rs-vertical-align($prefix = '') {
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'align'),
+    property: vertical-align,
+    data: {
+      initial: initial,
+      inherit: inherit,
+      baseline: baseline,
+      sub: sub,
+      super: super,
+      top: top,
+      text-top: text-top,
+      middle: middle,
+      bottom: bottom,
+      text-bottom: text-bottom,
+    },
+  });
+}
