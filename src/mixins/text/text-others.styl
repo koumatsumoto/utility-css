@@ -5,6 +5,17 @@
  * Mixin to create classes of text other classes, e.g. text-transform, text-overflow.
  */
 rs-text-others($prefix = '') {
+  // font-style
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'text'),
+    property: font-style,
+    data: {
+      normal: normal,
+      italic: italic,
+      oblique: oblique,
+    },
+  });
+
   // text-transform
   rs-generate-classes-by-option({
     prefix: ($prefix 'text'),
