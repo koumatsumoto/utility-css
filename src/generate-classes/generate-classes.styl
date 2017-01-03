@@ -1,9 +1,23 @@
+@import './alignment';
+@import './color';
+@import './cursor';
+@import './flex';
+@import './layout';
+@import './margin-padding';
+@import './opacity';
+@import './overflow';
+@import './text';
+@import './transition';
+@import './visibility';
+
+
+
 /**
  * Create all classes with hyphen-case prefix made by $prefixes
  *
  * @param {string[]} $prefixes - array of string, e.g. ('rs' 'sm')
  */
-_generate-classes($prefixes, $options) {
+_rs-generate-classes($prefixes, $options) {
   $prefix = rs-get-valid-hyphen-case-string($prefixes);
 
   // generate for box-sizing classes
@@ -66,7 +80,7 @@ _generate-classes($prefixes, $options) {
 /**
  * Mixin to generate common classes and media query classes
  */
-generate-classes($options) {
+rs-generate-classes($options) {
   // set option value from injected $options
   $prefix = $options['global-prefix'];
   $use-media-query = $options['use-media-query'];
@@ -74,7 +88,7 @@ generate-classes($options) {
 
 
   // generate common classes (no media query)
-  _generate-classes($prefix, $options);
+  _rs-generate-classes($prefix, $options);
 
   // generate media query classes, unless setting is disabled
   if ($use-media-query) {
@@ -93,7 +107,7 @@ generate-classes($options) {
 
       // generate classes
       @media $query {
-        _generate-classes(($prefix $key), $options);
+        _rs-generate-classes(($prefix $key), $options);
       }
     }
   }
