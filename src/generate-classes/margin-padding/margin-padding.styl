@@ -1,0 +1,34 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to create classes of margin and padding
+ */
+rs-margin-padding($prefix = '', $options = null) {
+  // when no $options is passed, no processing
+  if (typeof($options) != 'object' || length($options) < 1) {
+    return;
+  }
+
+  // create classes by each $options value
+  for $key, $val in $options {
+    // create both margin and padding classes
+    for $marginOrPadding in ('margin' 'padding') {
+
+      // generate class
+      {rs-get-class-name($prefix, $marginOrPadding, $key)} {
+        {$marginOrPadding}: $val;
+      }
+
+      // when $val is single value, e.g. 10px, each direction classes (top, right, bottom, left) and are created
+      // (when $val is multi value (shorthand), e.g. 10px 15px 10px, direction classes are not created)
+      if (length($val) == 1) {
+        for $direction in ('top' 'right' 'bottom' 'left') {
+          {rs-get-class-name($prefix, $marginOrPadding, $direction, $key)} {
+            {rs-get-valid-hyphen-case-string($marginOrPadding $direction)}: $val;
+          }
+        }
+      }
+    }
+  }
+}
