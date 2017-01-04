@@ -41,6 +41,7 @@ _rs-generate-classes($prefixes, $options) {
   rs-vertical-align($prefix);
 
   // generate margin and padding classes
+  rs-special-margin-padding($prefix);
   rs-margin-padding($prefix, $options['margin-padding']);
 
   rs-margin-value($prefix, $options['margin-base-size'], $options['margin-scale-number']);
