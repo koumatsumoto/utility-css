@@ -91,7 +91,7 @@ rs-generate-classes($options) {
   _rs-generate-classes($prefix, $options);
 
   // generate media query classes, when $options['media-query'] is set
-  if (rs-is-hash($media-options)) {
+  if (typeof($media-options) == 'object') {
     for $key, $val in $media-options {
       $query = 'screen';
 

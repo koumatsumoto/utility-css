@@ -28,7 +28,7 @@ rs-generate-classes-by-option($option) {
       $styles = {};
 
       // case $v is hash, $styles is assigned with $v as it is
-      if (rs-is-hash($v)) {
+      if (typeof($v) == 'object') {
         $styles = $v;
       // case $v is primitive value
       } else {
