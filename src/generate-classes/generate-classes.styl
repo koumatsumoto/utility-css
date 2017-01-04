@@ -1,3 +1,4 @@
+@import '../_functions';
 @import './alignment';
 @import './color';
 @import './cursor';
@@ -83,15 +84,14 @@ _rs-generate-classes($prefixes, $options) {
 rs-generate-classes($options) {
   // set option value from injected $options
   $prefix = $options['global-prefix'];
-  $use-media-query = $options['use-media-query'];
   $media-options = $options['media-query'];
 
 
   // generate common classes (no media query)
   _rs-generate-classes($prefix, $options);
 
-  // generate media query classes, unless setting is disabled
-  if ($use-media-query) {
+  // generate media query classes, when $options['media-query'] is set
+  if (rs-is-hash($media-options)) {
     for $key, $val in $media-options {
       $query = 'screen';
 
