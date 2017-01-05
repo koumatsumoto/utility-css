@@ -14,14 +14,11 @@ rs-color($prefix = '', $options = null) {
   }
 
 
+  // generate normal and hover classes
   for $key, $val in $options {
     {rs-get-class-name($prefix, 'color', $key)} {
       color: $val;
     }
-  }
-
-  // to hover class, e.g. 'rs-hover-color-red'
-  for $key, $val in $options {
     {rs-get-class-name($prefix, 'hover', 'color', $key) + ':hover'} {
       color: $val;
     }
