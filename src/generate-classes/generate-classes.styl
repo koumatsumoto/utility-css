@@ -44,10 +44,8 @@ _rs-generate-classes($prefixes, $options) {
   rs-special-margin-padding($prefix);
   rs-margin-padding($prefix, $options['margin-padding']);
 
-  // if color setting exists, generate color classes
-  if ($options['color'] && length($options['color'])) {
-    rs-color($prefix, $options['color']);
-  }
+  // generate color classes
+  rs-color($prefix, $options['color']);
 
   // if transition setting exists, generate its classes
   if ($options['transition'] && length($options['transition'])) {

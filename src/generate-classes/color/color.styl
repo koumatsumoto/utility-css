@@ -7,7 +7,13 @@
  * @param {string} $prefix - prefix of class name, e.g. 'rs-' of 'rs-class-name'
  * @param {Object} $options - color options to generate class, e.g. { color-key: value }
  */
-rs-color($prefix = '', $options) {
+rs-color($prefix = '', $options = null) {
+  // if no $options is passed, process nothing
+  if (typeof($options) != 'object' || length($options) < 1) {
+    return;
+  }
+
+
   for $key, $val in $options {
     {rs-get-class-name($prefix, 'color', $key)} {
       color: $val;
