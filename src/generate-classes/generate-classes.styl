@@ -48,10 +48,8 @@ _rs-generate-classes($prefixes, $options) {
   rs-special-color($prefix);
   rs-color($prefix, $options['color']);
 
-  // if transition setting exists, generate its classes
-  if ($options['transition'] && length($options['transition'])) {
-    rs-transition($prefix, $options['transition']);
-  }
+  // generate transition classes
+  rs-transition($prefix, $options['transition']);
 
   // generate opacity classes
   rs-opacity($prefix);
