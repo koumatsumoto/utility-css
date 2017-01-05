@@ -13,10 +13,10 @@ rs-transition($prefix = '', $options = null) {
     return;
   }
 
-
-  for $key, $val in $options {
-    {rs-get-class-name($prefix, 'transition', $key)} {
-      transition: $val;
-    }
-  }
+  // generate transition classes from $options
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'transition'),
+    property: transition,
+    data: $options,
+  });
 }
