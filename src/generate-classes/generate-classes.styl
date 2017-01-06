@@ -59,9 +59,8 @@ _rs-generate-classes($prefixes, $options) {
 
   // generate text classes
   rs-text-decoration($prefix);
-  rs-text-size($prefix);
-  rs-text-weight($prefix);
   rs-text-others($prefix);
+  rs-text($prefix, $options['text']);
 
   // generate visibility classes
   rs-visibility($prefix);
