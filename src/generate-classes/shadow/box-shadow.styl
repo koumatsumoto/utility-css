@@ -1,0 +1,19 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of box-shadow
+ */
+rs-box-shadow($prefix = '', $options = null) {
+  // if no $options is passed, process nothing
+  if (typeof($options) != 'object' || length($options) < 1) {
+    return;
+  }
+
+  // generate classes from $options
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'box-shadow'),
+    property: box-shadow,
+    data: $options,
+  });
+}
