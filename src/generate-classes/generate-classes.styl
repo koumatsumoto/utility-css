@@ -7,6 +7,7 @@
 @import './margin-padding';
 @import './opacity';
 @import './overflow';
+@import './shadow';
 @import './text';
 @import './transition';
 @import './visibility';
@@ -56,6 +57,9 @@ _rs-generate-classes($prefixes, $options) {
 
   // generate overflow classes
   rs-overflow($prefix);
+
+  // generate box-shadow, text-shadow classes
+  rs-box-shadow($prefix, $options['box-shadow']);
 
   // generate text classes
   rs-text-decoration($prefix);
