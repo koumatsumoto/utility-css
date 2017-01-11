@@ -8,15 +8,18 @@
  * @param {Object} $options - data object to generate class, e.g. { class-name: value }
  */
 rs-border($prefix = '', $options = null) {
-  // if no $options is passed, process nothing
+  // when no $options is passed, no processing
   if (typeof($options) != 'object' || length($options) < 1) {
     return;
   }
 
-  // generate classes
-  rs-generate-classes-by-option({
-    prefix: ($prefix 'border'),
-    property: border,
-    data: $options,
-  });
+  // create classes by each $options value
+  for $key, $val in $options {
+    // generate classes of each directions (all, top, right, bottom, left)
+    for $direction in ('' 'top' 'right' 'bottom' 'left') {
+      {rs-get-class-name($prefix, 'border', $direction, $key)} {
+        {rs-get-valid-hyphen-case-string('border' $direction)}: $val;
+      }
+    }
+  }
 }
