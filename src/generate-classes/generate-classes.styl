@@ -1,5 +1,6 @@
 @import '../_functions';
 @import './alignment';
+@import './border';
 @import './color';
 @import './cursor';
 @import './flex';
@@ -21,6 +22,10 @@
  */
 _rs-generate-classes($prefixes, $options) {
   $prefix = rs-get-valid-hyphen-case-string($prefixes);
+
+  // generate border classes
+  rs-border($prefix, $options['border']);
+  rs-special-border($prefix);
 
   // generate for box-sizing classes
   rs-box-sizing($prefix);

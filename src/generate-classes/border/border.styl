@@ -1,0 +1,22 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate border classes
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'rs-' of 'rs-class-name'
+ * @param {Object} $options - data object to generate class, e.g. { class-name: value }
+ */
+rs-border($prefix = '', $options = null) {
+  // if no $options is passed, process nothing
+  if (typeof($options) != 'object' || length($options) < 1) {
+    return;
+  }
+
+  // generate classes
+  rs-generate-classes-by-option({
+    prefix: ($prefix 'border'),
+    property: border,
+    data: $options,
+  });
+}

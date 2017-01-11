@@ -1,0 +1,15 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate special border classes, e.g. border-0
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'rs-' of 'rs-class-name'
+ */
+rs-special-border($prefix = '') {
+  for $direction in ('' 'top' 'right' 'bottom' 'left') {
+    {rs-get-class-name($prefix, 'border', $direction, '0')} {
+      {rs-get-valid-hyphen-case-string('border' $direction)}: 0;
+    }
+  }
+}
