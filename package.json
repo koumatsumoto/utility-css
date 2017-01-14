@@ -1,7 +1,7 @@
 {
-  "name": "rocket-start-css",
-  "version": "0.0.1",
-  "description": "A framework of css to accelerate your web development",
+  "name": "utility-css",
+  "version": "0.0.2",
+  "description": "A set of CSS classes that accelerate your web development.",
   "main": "index.js",
   "scripts": {
     "dev": "./node_modules/.bin/gulp dev:start",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kouMatsumoto/rocket-start-css.git"
+    "url": "git+https://github.com/kouMatsumoto/utility-css.git"
   },
   "keywords": [
     "stylus",
@@ -20,9 +20,9 @@
   "author": "kouMatsumoto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kouMatsumoto/rocket-start-css/issues"
+    "url": "https://github.com/kouMatsumoto/utility-css/issues"
   },
-  "homepage": "https://github.com/kouMatsumoto/rocket-start-css#readme",
+  "homepage": "https://github.com/kouMatsumoto/utility-css#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.1.0",
