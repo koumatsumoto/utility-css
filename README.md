@@ -1,2 +1,2 @@
-# stylus-rocket-dash
-A framework for Stylus
+# Utility CSS
+A set of CSS classes that accelerate your web development.

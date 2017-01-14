@@ -1,0 +1,28 @@
+@import './trim-side-hyphen';
+
+
+/**
+ * Function to get hyphen-case class name from multi strings
+ *
+ * @param {string...} $args - multi string to class name concatenated by hyphen-case
+ */
+uc-get-class-name($args...) {
+  if (length($args) < 1) {
+    return error('uc-get-hyphen-case-class-name needs at least one arguments');
+  }
+
+  $filtered = (); // consist of string which is not '' in args
+  $s = ''; // string var to to-string $a and check if $a is not ''
+  for $a in $args {
+    $s = uc-trim-side-hyphen($a);
+    if ($s != '') {
+      push($filtered, $s);
+    }
+  }
+
+  if (0 < length($filtered)) {
+    return '.' + join('-', $filtered);
+  } else {
+    return error('uc-get-hyphen-case-class-name needs at least one valid arguments');
+  }
+}

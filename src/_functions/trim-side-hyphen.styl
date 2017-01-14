@@ -1,0 +1,9 @@
+/**
+ * Function to trim side hyphens
+ *
+ * @param {string} $string - target variable of string
+ */
+uc-trim-side-hyphen($string = '') {
+  $s = '' + $string; // convert $string to string
+  return $s == '' ? '' : match('^([-]+)?(.*?)([-]+)?$', $s)[2];
+}

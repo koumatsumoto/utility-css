@@ -1,0 +1,21 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of cursor
+ *
+ * cursor property values is not supported all.
+ * TBD: whether adding inactive values, e.g. cursor: alias
+ */
+uc-cursor($prefix = '') {
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'cursor'),
+    property: cursor,
+    data: {
+      auto: auto,
+      default: default,
+      none: none,
+      pointer: pointer,
+    },
+  });
+}

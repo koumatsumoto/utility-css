@@ -1,0 +1,25 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate border classes
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
+ * @param {Object} $options - data object to generate class, e.g. { class-name: value }
+ */
+uc-border($prefix = '', $options = null) {
+  // when no $options is passed, no processing
+  if (typeof($options) != 'object' || length($options) < 1) {
+    return;
+  }
+
+  // create classes by each $options value
+  for $key, $val in $options {
+    // generate classes of each directions (all, top, right, bottom, left)
+    for $direction in ('' 'top' 'right' 'bottom' 'left') {
+      {uc-get-class-name($prefix, 'border', $direction, $key)} {
+        {uc-get-valid-hyphen-case-string('border' $direction)}: $val;
+      }
+    }
+  }
+}

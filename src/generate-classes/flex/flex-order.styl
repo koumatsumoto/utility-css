@@ -1,0 +1,17 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to create classes of flex-order
+ *
+ * number are from 0 to 20
+ */
+uc-flex-order($prefix = '') {
+  $prefix = uc-get-prefix($prefix, 'flex-order');
+
+  for $i in 0..20 {
+    {uc-get-class-name($prefix, $i)} {
+      order: $i;
+    }
+  }
+}

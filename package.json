@@ -1,0 +1,38 @@
+{
+  "name": "utility-css",
+  "version": "0.0.2",
+  "description": "A set of CSS classes that accelerate your web development.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/gulp dev:start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kouMatsumoto/utility-css.git"
+  },
+  "keywords": [
+    "stylus",
+    "css",
+    "framework",
+    "oocss"
+  ],
+  "author": "kouMatsumoto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kouMatsumoto/utility-css/issues"
+  },
+  "homepage": "https://github.com/kouMatsumoto/utility-css#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-stylint": "^4.0.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-util": "^3.0.7"
+  },
+  "dependencies": {
+    "stylus": "^0.54.5"
+  }
+}

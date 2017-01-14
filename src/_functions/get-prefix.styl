@@ -1,0 +1,23 @@
+@import './trim-side-hyphen';
+
+
+/**
+ * Function to get hyphen-case prefix from rest params
+ *
+ * @param {string...} $prefixes - multi string which will be concatenated by hyphen-case
+ */
+uc-get-prefix($prefixes...) {
+  if (length($prefixes) < 1) {
+    return '';
+  }
+
+  $ret-str = ''; // var to return
+  for $p in $prefixes {
+    $s = uc-trim-side-hyphen($p);
+    if ($s != '') {
+      $ret-str += $s + '-';
+    }
+  }
+
+  return $ret-str;
+}

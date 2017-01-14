@@ -35,3 +35,9 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# IDE and Editor
+.idea
+
+# ignore dist dir in develop
+/dist

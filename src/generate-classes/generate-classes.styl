@@ -1,0 +1,115 @@
+@import '../_functions';
+@import './alignment';
+@import './border';
+@import './color';
+@import './cursor';
+@import './flex';
+@import './layout';
+@import './margin-padding';
+@import './opacity';
+@import './overflow';
+@import './shadow';
+@import './text';
+@import './transition';
+@import './visibility';
+
+
+
+/**
+ * Create all classes with hyphen-case prefix made by $prefixes
+ *
+ * @param {string[]} $prefixes - array of string, e.g. ('uc' 'sm')
+ */
+_uc-generate-classes($prefixes, $options) {
+  $prefix = uc-get-valid-hyphen-case-string($prefixes);
+
+  // generate border classes
+  uc-border($prefix, $options['border']);
+  uc-special-border($prefix);
+  uc-border-radius($prefix, $options['border-radius']);
+
+  // generate for box-sizing classes
+  uc-box-sizing($prefix);
+
+  // generate cursor classes
+  uc-cursor($prefix);
+
+  // generate for display classes
+  uc-display($prefix);
+
+  // generate flex classes
+  uc-flex-alignment($prefix);
+  uc-flex-value($prefix);
+  uc-flex-additional-value($prefix);
+  uc-flex-order($prefix);
+
+  // generate text-align and vertical-align classes
+  uc-text-align($prefix);
+  uc-vertical-align($prefix);
+
+  // generate margin and padding classes
+  uc-special-margin-padding($prefix);
+  uc-margin-padding($prefix, $options['margin-padding']);
+
+  // generate color classes
+  uc-special-color($prefix);
+  uc-color($prefix, $options['color']);
+
+  // generate transition classes
+  uc-transition($prefix, $options['transition']);
+
+  // generate opacity classes
+  uc-opacity($prefix);
+
+  // generate overflow classes
+  uc-overflow($prefix);
+
+  // generate box-shadow, text-shadow classes
+  uc-box-shadow($prefix, $options['box-shadow']);
+  uc-text-shadow($prefix, $options['text-shadow']);
+
+  // generate text classes
+  uc-text-decoration($prefix);
+  uc-text-others($prefix);
+  uc-text($prefix, $options['text']);
+
+  // generate visibility classes
+  uc-visibility($prefix);
+}
+
+
+
+/**
+ * Mixin to generate common classes and media query classes
+ */
+uc-generate-classes($options) {
+  // set option value from injected $options
+  $prefix = $options['global-prefix'];
+  $media-options = $options['media-query'];
+
+
+  // generate common classes (no media query)
+  _uc-generate-classes($prefix, $options);
+
+  // generate media query classes, when $options['media-query'] is set
+  if (typeof($media-options) == 'object') {
+    for $key, $val in $media-options {
+      $query = 'screen';
+
+      // setting for min-width unless value is null
+      if $val[0] {
+        $query += ' and (min-width: ' + $val[0] + 'px)';
+      }
+
+      // setting for max-width unless value is null
+      if $val[1] {
+        $query += ' and (max-width: ' + $val[1] + 'px)';
+      }
+
+      // generate classes
+      @media $query {
+        _uc-generate-classes(($prefix $key), $options);
+      }
+    }
+  }
+}

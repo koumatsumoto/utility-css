@@ -1,0 +1,17 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate special color classes, e.g. color-inherit
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
+ */
+uc-special-color($prefix = '', $options = null) {
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'color'),
+    property: color,
+    data: {
+      'inherit': inherit,
+    },
+  });
+}

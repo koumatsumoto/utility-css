@@ -1,0 +1,16 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of box-sizing
+ */
+uc-box-sizing($prefix = '') {
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'layout'),
+    property: box-sizing,
+    data: {
+      content-box: content-box,
+      border-box: border-box,
+    },
+  });
+}

@@ -1,0 +1,15 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate special border classes, e.g. border-0
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
+ */
+uc-special-border($prefix = '') {
+  for $direction in ('' 'top' 'right' 'bottom' 'left') {
+    {uc-get-class-name($prefix, 'border', $direction, '0')} {
+      {uc-get-valid-hyphen-case-string('border' $direction)}: 0;
+    }
+  }
+}

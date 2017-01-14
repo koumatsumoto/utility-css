@@ -1,0 +1,24 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate opacity classes
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
+ */
+uc-opacity($prefix = '') {
+  for $i in 0..20 {
+    $suffix = ($i * 5);
+    $val = ($i * 5 / 100);
+
+    // default numeric opacity classes
+    {uc-get-class-name($prefix, 'opacity', $suffix)} {
+      opacity: $val
+    }
+
+    // to hover class, e.g. 'uc-hover-opacity'
+    {uc-get-class-name($prefix, 'hover', 'opacity', $suffix) + ':hover'} {
+      opacity: $val;
+    }
+  }
+}

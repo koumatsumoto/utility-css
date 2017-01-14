@@ -1,0 +1,26 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate color classes
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
+ * @param {Object} $options - color options to generate class, e.g. { color-key: value }
+ */
+uc-color($prefix = '', $options = null) {
+  // if no $options is passed, process nothing
+  if (typeof($options) != 'object' || length($options) < 1) {
+    return;
+  }
+
+
+  // generate normal and hover classes
+  for $key, $val in $options {
+    {uc-get-class-name($prefix, 'color', $key)} {
+      color: $val;
+    }
+    {uc-get-class-name($prefix, 'hover', 'color', $key) + ':hover'} {
+      color: $val;
+    }
+  }
+}

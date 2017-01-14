@@ -1,0 +1,18 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of text-decoration
+ */
+uc-text-decoration($prefix = '') {
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'text-decoration'),
+    property: text-decoration,
+    data: {
+      none: none,
+      underline: underline,
+      overline: overline,
+      line-through: line-through,
+    },
+  });
+}

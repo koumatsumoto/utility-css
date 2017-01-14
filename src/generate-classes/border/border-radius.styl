@@ -1,0 +1,22 @@
+@import '../../_functions';
+
+
+/**
+ * Mixin to generate border-radius classes, e.g. border-radius-name
+ *
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
+ * @param {Object} $options - data object to generate class, e.g. { class-name: value }
+ */
+uc-border-radius($prefix = '', $options) {
+  // if no $options is passed, process nothing
+  if (typeof($options) != 'object' || length($options) < 1) {
+    return;
+  }
+
+  // generate classes
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'border-radius'),
+    property: border-radius,
+    data: $options,
+  });
+}

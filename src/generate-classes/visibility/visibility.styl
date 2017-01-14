@@ -1,0 +1,17 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of visibility
+ *
+ */
+uc-visibility($prefix = '') {
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'visibility'),
+    property: visibility,
+    data: {
+      visible: visible,
+      hidden: hidden,
+    },
+  });
+}

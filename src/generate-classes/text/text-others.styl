@@ -1,0 +1,51 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create classes of text other classes, e.g. text-transform, text-overflow.
+ */
+uc-text-others($prefix = '') {
+  // font-style
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'text'),
+    property: font-style,
+    data: {
+      normal: normal,
+      italic: italic,
+      oblique: oblique,
+    },
+  });
+
+  // text-transform
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'text'),
+    property: text-transform,
+    data: {
+      capitalize: capitalize,
+      lowercase: lowercase,
+      uppercase: uppercase,
+    },
+  });
+
+  // text-overflow
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'text'),
+    property: text-overflow,
+    data: {
+      clip: clip,
+      ellipsis: ellipsis,
+    },
+  });
+
+  // white-space
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'text'),
+    property: white-space,
+    data: {
+      nowrap: nowrap,
+      pre: pre,
+      pre-wrap: pre-wrap,
+      pre-line: pre-line,
+    },
+  });
+}
