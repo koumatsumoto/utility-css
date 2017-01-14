@@ -6,14 +6,14 @@
  *
  * @param {string...} $prefixes - multi string which will be concatenated by hyphen-case
  */
-rs-get-prefix($prefixes...) {
+uc-get-prefix($prefixes...) {
   if (length($prefixes) < 1) {
     return '';
   }
 
   $ret-str = ''; // var to return
   for $p in $prefixes {
-    $s = rs-trim-side-hyphen($p);
+    $s = uc-trim-side-hyphen($p);
     if ($s != '') {
       $ret-str += $s + '-';
     }

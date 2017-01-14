@@ -1,5 +1,5 @@
 module.exports = {
-  // framework prefix e.g. 'layout-', 'rs-layout-', 'my-layout-' ...
+  // framework prefix e.g. 'layout-', 'uc-layout-', 'my-layout-' ...
   frameworkPrefix: '',
   // whether enable media query classes e.g. 'sm-', 'md-' and so on.
   useMediaQuery: true,

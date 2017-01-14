@@ -11,7 +11,7 @@
  * @param {string|string[]} $args - string or string array
  * @return {string} - string that is concatenated with hyphen
  */
-rs-get-valid-hyphen-case-string($args) {
+uc-get-valid-hyphen-case-string($args) {
   // if $args is one string
   if (length($args) < 1) {
     return $args;
@@ -19,7 +19,7 @@ rs-get-valid-hyphen-case-string($args) {
 
   $array = (); // string array which will be concatenated with '-'
   for $a in $args {
-    $s = rs-trim-side-hyphen($a); // trim side hyphens and convert to string
+    $s = uc-trim-side-hyphen($a); // trim side hyphens and convert to string
     if ($s != '') {
       push($array, $s);
     }

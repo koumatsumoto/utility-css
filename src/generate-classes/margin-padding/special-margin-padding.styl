@@ -4,13 +4,13 @@
 /**
  * Mixin to create special classes of margin and padding, e.g. 0, auto
  */
-rs-special-margin-padding($prefix = '') {
+uc-special-margin-padding($prefix = '') {
   // create classes of values 0 and auto, for all directions, for margin and padding
   for $keyword in (0 auto) {
     for $marginOrPadding in ('margin' 'padding') {
       for $direction in ('' 'top' 'right' 'bottom' 'left') {
-        {rs-get-class-name($prefix, $marginOrPadding, $direction, $keyword)} {
-          {rs-get-valid-hyphen-case-string($marginOrPadding $direction)}: $keyword;
+        {uc-get-class-name($prefix, $marginOrPadding, $direction, $keyword)} {
+          {uc-get-valid-hyphen-case-string($marginOrPadding $direction)}: $keyword;
         }
       }
     }

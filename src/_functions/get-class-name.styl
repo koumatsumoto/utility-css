@@ -6,15 +6,15 @@
  *
  * @param {string...} $args - multi string to class name concatenated by hyphen-case
  */
-rs-get-class-name($args...) {
+uc-get-class-name($args...) {
   if (length($args) < 1) {
-    return error('rs-get-hyphen-case-class-name needs at least one arguments');
+    return error('uc-get-hyphen-case-class-name needs at least one arguments');
   }
 
   $filtered = (); // consist of string which is not '' in args
   $s = ''; // string var to to-string $a and check if $a is not ''
   for $a in $args {
-    $s = rs-trim-side-hyphen($a);
+    $s = uc-trim-side-hyphen($a);
     if ($s != '') {
       push($filtered, $s);
     }
@@ -23,6 +23,6 @@ rs-get-class-name($args...) {
   if (0 < length($filtered)) {
     return '.' + join('-', $filtered);
   } else {
-    return error('rs-get-hyphen-case-class-name needs at least one valid arguments');
+    return error('uc-get-hyphen-case-class-name needs at least one valid arguments');
   }
 }

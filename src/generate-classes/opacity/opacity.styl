@@ -4,20 +4,20 @@
 /**
  * Mixin to generate opacity classes
  *
- * @param {string} $prefix - prefix of class name, e.g. 'rs-' of 'rs-class-name'
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
  */
-rs-opacity($prefix = '') {
+uc-opacity($prefix = '') {
   for $i in 0..20 {
     $suffix = ($i * 5);
     $val = ($i * 5 / 100);
 
     // default numeric opacity classes
-    {rs-get-class-name($prefix, 'opacity', $suffix)} {
+    {uc-get-class-name($prefix, 'opacity', $suffix)} {
       opacity: $val
     }
 
-    // to hover class, e.g. 'rs-hover-opacity'
-    {rs-get-class-name($prefix, 'hover', 'opacity', $suffix) + ':hover'} {
+    // to hover class, e.g. 'uc-hover-opacity'
+    {uc-get-class-name($prefix, 'hover', 'opacity', $suffix) + ':hover'} {
       opacity: $val;
     }
   }

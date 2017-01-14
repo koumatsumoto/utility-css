@@ -18,63 +18,63 @@
 /**
  * Create all classes with hyphen-case prefix made by $prefixes
  *
- * @param {string[]} $prefixes - array of string, e.g. ('rs' 'sm')
+ * @param {string[]} $prefixes - array of string, e.g. ('uc' 'sm')
  */
-_rs-generate-classes($prefixes, $options) {
-  $prefix = rs-get-valid-hyphen-case-string($prefixes);
+_uc-generate-classes($prefixes, $options) {
+  $prefix = uc-get-valid-hyphen-case-string($prefixes);
 
   // generate border classes
-  rs-border($prefix, $options['border']);
-  rs-special-border($prefix);
-  rs-border-radius($prefix, $options['border-radius']);
+  uc-border($prefix, $options['border']);
+  uc-special-border($prefix);
+  uc-border-radius($prefix, $options['border-radius']);
 
   // generate for box-sizing classes
-  rs-box-sizing($prefix);
+  uc-box-sizing($prefix);
 
   // generate cursor classes
-  rs-cursor($prefix);
+  uc-cursor($prefix);
 
   // generate for display classes
-  rs-display($prefix);
+  uc-display($prefix);
 
   // generate flex classes
-  rs-flex-alignment($prefix);
-  rs-flex-value($prefix);
-  rs-flex-additional-value($prefix);
-  rs-flex-order($prefix);
+  uc-flex-alignment($prefix);
+  uc-flex-value($prefix);
+  uc-flex-additional-value($prefix);
+  uc-flex-order($prefix);
 
   // generate text-align and vertical-align classes
-  rs-text-align($prefix);
-  rs-vertical-align($prefix);
+  uc-text-align($prefix);
+  uc-vertical-align($prefix);
 
   // generate margin and padding classes
-  rs-special-margin-padding($prefix);
-  rs-margin-padding($prefix, $options['margin-padding']);
+  uc-special-margin-padding($prefix);
+  uc-margin-padding($prefix, $options['margin-padding']);
 
   // generate color classes
-  rs-special-color($prefix);
-  rs-color($prefix, $options['color']);
+  uc-special-color($prefix);
+  uc-color($prefix, $options['color']);
 
   // generate transition classes
-  rs-transition($prefix, $options['transition']);
+  uc-transition($prefix, $options['transition']);
 
   // generate opacity classes
-  rs-opacity($prefix);
+  uc-opacity($prefix);
 
   // generate overflow classes
-  rs-overflow($prefix);
+  uc-overflow($prefix);
 
   // generate box-shadow, text-shadow classes
-  rs-box-shadow($prefix, $options['box-shadow']);
-  rs-text-shadow($prefix, $options['text-shadow']);
+  uc-box-shadow($prefix, $options['box-shadow']);
+  uc-text-shadow($prefix, $options['text-shadow']);
 
   // generate text classes
-  rs-text-decoration($prefix);
-  rs-text-others($prefix);
-  rs-text($prefix, $options['text']);
+  uc-text-decoration($prefix);
+  uc-text-others($prefix);
+  uc-text($prefix, $options['text']);
 
   // generate visibility classes
-  rs-visibility($prefix);
+  uc-visibility($prefix);
 }
 
 
@@ -82,14 +82,14 @@ _rs-generate-classes($prefixes, $options) {
 /**
  * Mixin to generate common classes and media query classes
  */
-rs-generate-classes($options) {
+uc-generate-classes($options) {
   // set option value from injected $options
   $prefix = $options['global-prefix'];
   $media-options = $options['media-query'];
 
 
   // generate common classes (no media query)
-  _rs-generate-classes($prefix, $options);
+  _uc-generate-classes($prefix, $options);
 
   // generate media query classes, when $options['media-query'] is set
   if (typeof($media-options) == 'object') {
@@ -108,7 +108,7 @@ rs-generate-classes($options) {
 
       // generate classes
       @media $query {
-        _rs-generate-classes(($prefix $key), $options);
+        _uc-generate-classes(($prefix $key), $options);
       }
     }
   }
