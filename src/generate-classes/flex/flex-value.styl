@@ -4,7 +4,7 @@
 /**
  * Property set for flex class
  */
-_rs-flex-set($basis) {
+_uc-flex-set($basis) {
   box-sizing: border-box;
   flex: 1 1 $basis;
   max-height: 100%;
@@ -15,27 +15,27 @@ _rs-flex-set($basis) {
 /**
  * Mixin to create classes of flex-numbers
  */
-rs-flex-value($prefix = '') {
-  $prefix = rs-get-prefix($prefix, 'flex');
+uc-flex-value($prefix = '') {
+  $prefix = uc-get-prefix($prefix, 'flex');
 
   // flex value for multiple of 5
   for $i in 1..20 {
     $t = $i * 5;
-    {rs-get-class-name($prefix, $t)} {
-      _rs-flex-set($t + '%');
+    {uc-get-class-name($prefix, $t)} {
+      _uc-flex-set($t + '%');
     }
   }
 
   // special value 33.33% and 66.66%
-  {rs-get-class-name($prefix, 33)} {
-    _rs-flex-set(33.33%);
+  {uc-get-class-name($prefix, 33)} {
+    _uc-flex-set(33.33%);
   }
-  {rs-get-class-name($prefix, 66)} {
-    _rs-flex-set(66.66%);
+  {uc-get-class-name($prefix, 66)} {
+    _uc-flex-set(66.66%);
   }
 
   // flex class for the rest
-  {rs-get-class-name($prefix)} {
+  {uc-get-class-name($prefix)} {
     box-sizing: border-box;
     flex: 1;
     min-width: 0;

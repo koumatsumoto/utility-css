@@ -4,10 +4,10 @@
 /**
  * Mixin to generate border classes
  *
- * @param {string} $prefix - prefix of class name, e.g. 'rs-' of 'rs-class-name'
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
  * @param {Object} $options - data object to generate class, e.g. { class-name: value }
  */
-rs-border($prefix = '', $options = null) {
+uc-border($prefix = '', $options = null) {
   // when no $options is passed, no processing
   if (typeof($options) != 'object' || length($options) < 1) {
     return;
@@ -17,8 +17,8 @@ rs-border($prefix = '', $options = null) {
   for $key, $val in $options {
     // generate classes of each directions (all, top, right, bottom, left)
     for $direction in ('' 'top' 'right' 'bottom' 'left') {
-      {rs-get-class-name($prefix, 'border', $direction, $key)} {
-        {rs-get-valid-hyphen-case-string('border' $direction)}: $val;
+      {uc-get-class-name($prefix, 'border', $direction, $key)} {
+        {uc-get-valid-hyphen-case-string('border' $direction)}: $val;
       }
     }
   }

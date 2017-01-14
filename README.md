@@ -1,2 +1,2 @@
-# Rocket Start CSS
-A css framework that accelerates your web development.
+# Utility CSS
+A set of CSS classes that accelerate your web development.

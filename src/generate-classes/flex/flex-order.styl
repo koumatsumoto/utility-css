@@ -6,11 +6,11 @@
  *
  * number are from 0 to 20
  */
-rs-flex-order($prefix = '') {
-  $prefix = rs-get-prefix($prefix, 'flex-order');
+uc-flex-order($prefix = '') {
+  $prefix = uc-get-prefix($prefix, 'flex-order');
 
   for $i in 0..20 {
-    {rs-get-class-name($prefix, $i)} {
+    {uc-get-class-name($prefix, $i)} {
       order: $i;
     }
   }

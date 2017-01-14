@@ -4,17 +4,17 @@
 /**
  * Mixin to generate border-radius classes, e.g. border-radius-name
  *
- * @param {string} $prefix - prefix of class name, e.g. 'rs-' of 'rs-class-name'
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
  * @param {Object} $options - data object to generate class, e.g. { class-name: value }
  */
-rs-border-radius($prefix = '', $options) {
+uc-border-radius($prefix = '', $options) {
   // if no $options is passed, process nothing
   if (typeof($options) != 'object' || length($options) < 1) {
     return;
   }
 
   // generate classes
-  rs-generate-classes-by-option({
+  uc-generate-classes-by-option({
     prefix: ($prefix 'border-radius'),
     property: border-radius,
     data: $options,

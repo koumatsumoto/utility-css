@@ -4,17 +4,17 @@
 /**
  * Mixin to generate transition classes from options
  *
- * @param {string} $prefix - prefix of class name, e.g. 'rs-' of 'rs-class-name'
+ * @param {string} $prefix - prefix of class name, e.g. 'uc-' of 'uc-class-name'
  * @param {Object} $options - generating class options, e.g. { transition-key: value }
  */
-rs-transition($prefix = '', $options = null) {
+uc-transition($prefix = '', $options = null) {
   // if no $options is passed, process nothing
   if (typeof($options) != 'object' || length($options) < 1) {
     return;
   }
 
   // generate transition classes from $options
-  rs-generate-classes-by-option({
+  uc-generate-classes-by-option({
     prefix: ($prefix 'transition'),
     property: transition,
     data: $options,

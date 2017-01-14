@@ -4,8 +4,8 @@
 /**
  * Mixin to create flex alignment classes
  */
-rs-flex-alignment($prefix = '') {
-  $prefix = rs-get-prefix($prefix, 'layout');
+uc-flex-alignment($prefix = '') {
+  $prefix = uc-get-prefix($prefix, 'layout');
 
   // keyword and property of justify-content and align-items
   $justify-content = {
@@ -23,10 +23,10 @@ rs-flex-alignment($prefix = '') {
     stretch: stretch
   };
 
-  // generate class of `rs-layout-*-*`
+  // generate class of `uc-layout-*-*`
   for $jc-key, $jc-val in $justify-content {
     for $ai-key, $ai-val in $align-items {
-      {rs-get-class-name($prefix, $jc-key, $ai-key)} {
+      {uc-get-class-name($prefix, $jc-key, $ai-key)} {
         align-items: $ai-val;
         justify-content: $jc-val;
       }

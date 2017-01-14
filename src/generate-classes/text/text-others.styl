@@ -4,9 +4,9 @@
 /**
  * Mixin to create classes of text other classes, e.g. text-transform, text-overflow.
  */
-rs-text-others($prefix = '') {
+uc-text-others($prefix = '') {
   // font-style
-  rs-generate-classes-by-option({
+  uc-generate-classes-by-option({
     prefix: ($prefix 'text'),
     property: font-style,
     data: {
@@ -17,7 +17,7 @@ rs-text-others($prefix = '') {
   });
 
   // text-transform
-  rs-generate-classes-by-option({
+  uc-generate-classes-by-option({
     prefix: ($prefix 'text'),
     property: text-transform,
     data: {
@@ -28,7 +28,7 @@ rs-text-others($prefix = '') {
   });
 
   // text-overflow
-  rs-generate-classes-by-option({
+  uc-generate-classes-by-option({
     prefix: ($prefix 'text'),
     property: text-overflow,
     data: {
@@ -38,7 +38,7 @@ rs-text-others($prefix = '') {
   });
 
   // white-space
-  rs-generate-classes-by-option({
+  uc-generate-classes-by-option({
     prefix: ($prefix 'text'),
     property: white-space,
     data: {
