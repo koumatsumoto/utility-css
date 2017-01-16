@@ -1,6 +1,6 @@
 {
   "name": "utility-css",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A set of CSS classes that accelerate your web development.",
   "main": "index.js",
   "scripts": {
