@@ -37,8 +37,10 @@ gulp.task('docs:pug:transpile', () => {
 /**
  * Task to watch files in docs/src to reload browser and transpile stylus
  */
-gulp.task('docs:watch', () => {
+gulp.task('docs:watch', (done) => {
   gulp.watch(join(DOCS_STYLUS_ROOT, '**/*.styl'), ['docs:styl:transpile']);
+  gulp.watch(join(DOCS_PUG_ROOT, '**/*.pug'), ['docs:pug:transpile']);
+  done();
 });
 
 
