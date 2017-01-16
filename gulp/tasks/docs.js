@@ -35,6 +35,15 @@ gulp.task('docs:pug:transpile', () => {
 
 
 /**
+ * Task to build stylus and pug in development
+ */
+gulp.task('docs:build:dev', [
+  'docs:styl:transpile',
+  'docs:pug:transpile'
+]);
+
+
+/**
  * Task to watch files in docs/src to reload browser and transpile stylus
  */
 gulp.task('docs:watch', (done) => {
@@ -47,4 +56,4 @@ gulp.task('docs:watch', (done) => {
 /**
  * Task to edit docs
  */
-gulp.task('docs:start-editing', ['docs:styl:transpile', 'docs:watch']);
+gulp.task('docs:start-editing', ['docs:build:dev', 'docs:watch']);
