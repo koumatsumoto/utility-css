@@ -3,9 +3,11 @@ const gulpPlumber = require('gulp-plumber');
 const gulpRename = require('gulp-rename');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpStylus = require('gulp-stylus');
+const gulpPug = require('gulp-pug');
 const {join} = require('path');
 const {DOCS_ROOT} = require('../constants');
 const DOCS_STYLUS_ROOT = join(DOCS_ROOT, 'src/stylus');
+const DOCS_PUG_ROOT = join(DOCS_ROOT, 'src/pug');
 
 
 /**
@@ -18,6 +20,16 @@ gulp.task('docs:styl:transpile', () => {
     .pipe(gulpStylus())
     .pipe(gulpRename('style.css'))
     .pipe(gulpSourcemaps.write())
+    .pipe(gulp.dest(DOCS_ROOT));
+});
+
+
+/**
+ * Task to generate index.html with transpiling pug
+ */
+gulp.task('docs:pug:transpile', () => {
+  return gulp.src(join(DOCS_PUG_ROOT, 'index.pug'))
+    .pipe(gulpPug())
     .pipe(gulp.dest(DOCS_ROOT));
 });
 
