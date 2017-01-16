@@ -1,0 +1,17 @@
+@import '../../_mixins';
+
+
+/**
+ * Mixin to create position classes
+ */
+uc-position($prefix = '') {
+  uc-generate-classes-by-option({
+    prefix: ($prefix 'layout'),
+    property: position,
+    data: {
+      'absolute': absolute,
+      'fixed': fixed,
+      'relative': relative,
+    },
+  });
+}
