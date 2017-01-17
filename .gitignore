@@ -41,3 +41,7 @@ jspm_packages
 
 # ignore dist dir in develop
 /dist
+
+# ignore html and css in docs when develop
+docs/index.html
+docs/style.css
