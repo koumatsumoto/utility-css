@@ -1,9 +1,11 @@
 const gulp = require('gulp');
 const gulpPlumber = require('gulp-plumber');
 const gulpRename = require('gulp-rename');
+const gulpServerLivereload = require('gulp-server-livereload');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpStylus = require('gulp-stylus');
 const gulpPug = require('gulp-pug');
+const runSequence = require('run-sequence');
 const {join} = require('path');
 const {DOCS_ROOT} = require('../constants');
 const DOCS_STYLUS_ROOT = join(DOCS_ROOT, 'src/stylus');
@@ -54,6 +56,31 @@ gulp.task('docs:watch', (done) => {
 
 
 /**
+ * Task to serve
+ */
+gulp.task('docs:serve', (done) => {
+  return gulp.src(DOCS_ROOT)
+    .pipe(gulpServerLivereload({
+      fallback: 'index.html',
+      livereload: {
+        enable: true,
+        filter: (filename, cb) => {
+          cb(!(/src/.test(filename)));
+        },
+        port: 4200
+      },
+      open: true
+    }));
+});
+
+
+/**
  * Task to edit docs
  */
-gulp.task('docs:start-editing', ['docs:build:dev', 'docs:watch']);
+gulp.task('docs:start-editing', () => {
+  runSequence(
+    'docs:build:dev',
+    'docs:watch',
+    'docs:serve'
+  );
+});
