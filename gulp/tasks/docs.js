@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const gulpPlumber = require('gulp-plumber');
 const gulpRename = require('gulp-rename');
+const gulpServerLivereload = require('gulp-server-livereload');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpStylus = require('gulp-stylus');
 const gulpPug = require('gulp-pug');
@@ -50,6 +51,25 @@ gulp.task('docs:watch', (done) => {
   gulp.watch(join(DOCS_STYLUS_ROOT, '**/*.styl'), ['docs:styl:transpile']);
   gulp.watch(join(DOCS_PUG_ROOT, '**/*.pug'), ['docs:pug:transpile']);
   done();
+});
+
+
+/**
+ * Task to serve
+ */
+gulp.task('docs:serve', (done) => {
+  return gulp.src(DOCS_ROOT)
+    .pipe(gulpServerLivereload({
+      fallback: 'index.html',
+      livereload: {
+        enable: true,
+        filter: (filename, cb) => {
+          cb(!(/src/.test(filename)));
+        },
+        port: 4200
+      },
+      open: true
+    }));
 });
 
 
