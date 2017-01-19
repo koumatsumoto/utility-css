@@ -27,6 +27,18 @@ gulp.task('docs:styl:transpile', () => {
 
 
 /**
+ * Task for generate utility-css.css
+ */
+gulp.task('docs:styl:utility-css', () => {
+  return gulp.src(join(DOCS_STYLUS_ROOT, 'utility-css.styl'))
+    .pipe(gulpPlumber())
+    .pipe(gulpStylus({compress: true}))
+    .pipe(gulpRename('utility-css.min.css'))
+    .pipe(gulp.dest(DOCS_ROOT));
+});
+
+
+/**
  * Task to generate index.html with transpiling pug
  */
 gulp.task('docs:pug:transpile', () => {
@@ -50,6 +62,7 @@ gulp.task('docs:build:dev', [
  */
 gulp.task('docs:watch', (done) => {
   gulp.watch(join(DOCS_STYLUS_ROOT, '**/*.styl'), ['docs:styl:transpile']);
+  gulp.watch(join(DOCS_STYLUS_ROOT, 'utility-css.styl'), ['docs:styl:utility-css']);
   gulp.watch(join(DOCS_PUG_ROOT, '**/*.pug'), ['docs:pug:transpile']);
   done();
 });

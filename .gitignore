@@ -44,4 +44,4 @@ jspm_packages
 
 # ignore html and css in docs when develop
 docs/index.html
-docs/style.css
+docs/*.css
