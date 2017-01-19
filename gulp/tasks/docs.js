@@ -62,6 +62,7 @@ gulp.task('docs:build:dev', [
  */
 gulp.task('docs:watch', (done) => {
   gulp.watch(join(DOCS_STYLUS_ROOT, '**/*.styl'), ['docs:styl:transpile']);
+  gulp.watch(join(DOCS_STYLUS_ROOT, 'utility-css.styl'), ['docs:styl:utility-css']);
   gulp.watch(join(DOCS_PUG_ROOT, '**/*.pug'), ['docs:pug:transpile']);
   done();
 });
