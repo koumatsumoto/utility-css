@@ -4,6 +4,10 @@ A set of CSS classes that accelerate your web development.
 Full documentation is at [kouMatsumoto.github.io/utility-css](kouMatsumoto.github.io/utility-css)
 
 
+## About
+Utility-CSS is CSS class sets to layout components.
+
+
 ## Supported CSS Property
 
 - align-items
